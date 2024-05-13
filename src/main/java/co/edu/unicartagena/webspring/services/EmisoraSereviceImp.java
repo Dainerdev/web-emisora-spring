@@ -32,10 +32,10 @@ public class EmisoraSereviceImp implements IEmisoraService{
         crudEmisora.delete(emi);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public Emisora buscar(Emisora emi) {
-        return crudEmisora.findById(String.valueOf(emi.getId())).orElse(null);
+        return crudEmisora.findById(emi.getId()).orElse(null);
     }
     
 }

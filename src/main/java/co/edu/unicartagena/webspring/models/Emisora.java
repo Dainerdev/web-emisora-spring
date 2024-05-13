@@ -12,11 +12,11 @@ import lombok.Data;
 @Data
 public class Emisora implements Serializable{
 
-    private static final long SerialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
     @Id
     private int id;
     private String nombre;
-    private double frecuencia;
+    private String frecuencia;
     private String transmision;
     
 }

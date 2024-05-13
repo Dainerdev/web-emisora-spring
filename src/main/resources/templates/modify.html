@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>AGREGAR EMISORA - Dainer Florian</title>
+        <title>MODIFICAR EMISORAS - Dainer Florian</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -13,16 +13,20 @@
         <form th:action="@{/guardar}" method="POST" th:object="${emisora}">
             <br/>
             
+            <label for="id">ID:</label>
+            <input type="text" name="id" th:field="*{id}" readonly />
+            <br/>            
+            
             <span style="color: red">*</span> <label for="nombre">NOMBRE:</label>
-            <input type="text" name="nombre" th.field="*{nombre}" required />
+            <input type="text" name="nombre" th:field="*{nombre}" required />
             <br/>
             
             <span style="color: red">*</span> <label for="frec">FRECUENCIA:</label>
-            <input type="text" name="frecuencia" th.field="*{frecuencia}" required />
+            <input type="text" name="frecuencia" th:field="*{frecuencia}" required />
             <br/>
             
             <span style="color: red">*</span> <label for="transm">TRANSMISIÓN:</label>
-            <input type="text" name="transmision" th.field="*{transmision}" required />
+            <input type="text" name="transmision" th:field="*{transmision}" required />
             <br/>
             
             <br/>
@@ -30,5 +34,8 @@
             <input type="submit" name="guardar" value="Guardar" />
             <br/>
         </form>
+        <div th:if="${error}">
+            <p th:text="${error}"></p>
+        </div>
     </body>
 </html>
