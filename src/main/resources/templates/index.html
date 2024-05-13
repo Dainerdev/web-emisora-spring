@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Main Page</title>
-    <meta charset="UTF-8">
-</head>
-<body>
-    <h2>PÁGINA DE INICIO</h2>
-    <p th:text="${mensaje}"></p>
-</body>
+    <head>
+        <title>Principal - Dainer Florian</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h2>PÁGINA DE INICIO</h2>
+        <a th:href="@{/agregar}">AGREGAR EMISORA</a>
+        <h4>LISTA DE EMISORAS</h4>
+        <hr>
+        <div th:if="${emisoras != null and !emisoras.empty}">
+            <table border="1">
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>FRECUENCIA</th>
+                    <th>TRANSMISIÓN</th>
+                </tr>
+                <tr th:each="emi: ${emisoras}">
+                    <td th:text="${emi.nombre}"></td>
+                    <td th:text="${emi.frecuencia}"></td>
+                    <td th:text="${emi.transmision}"></td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${emisoras == null or emisoras.empty}">
+            La lista se encuentra vacía.
+        </div>
+    </body>
 </html>
-

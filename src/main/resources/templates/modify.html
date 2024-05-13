@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>AGREGAR EMISORA - Dainer Florian</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>DATOS DE LA EMISORA</h1>
+        <a th:href="@{/}">REGRESAR</a>
+        <br/>
+        <form th:action="@{/guardar}" method="POST" th:object="${emisora}">
+            <br/>
+            
+            <span style="color: red">*</span> <label for="nombre">NOMBRE:</label>
+            <input type="text" name="nombre" th.field="*{nombre}" required />
+            <br/>
+            
+            <span style="color: red">*</span> <label for="frec">FRECUENCIA:</label>
+            <input type="text" name="frecuencia" th.field="*{frecuencia}" required />
+            <br/>
+            
+            <span style="color: red">*</span> <label for="transm">TRANSMISIÓN:</label>
+            <input type="text" name="transmision" th.field="*{transmision}" required />
+            <br/>
+            
+            <br/>
+            <input type="reset" value="Limpiar" /> &nbsp;&nbsp;&nbsp;
+            <input type="submit" name="guardar" value="Guardar" />
+            <br/>
+        </form>
+    </body>
+</html>
