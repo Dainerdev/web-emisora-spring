@@ -5,10 +5,11 @@
         <meta charset="UTF-8">
     </head>
     <body>
+        <header th:replace="plantillas/partes :: header"></header>
         <h2>PÁGINA DE INICIO</h2>
         <a th:href="@{/agregar}">AGREGAR EMISORA</a>
         <h4>LISTA DE EMISORAS</h4>
-        <hr>
+        <hr><br/>
         <div th:if="${emisoras != null and !emisoras.empty}">
             <table border="1">
                 <tr>
@@ -31,5 +32,6 @@
         <div th:if="${emisoras == null or emisoras.empty}">
             La lista se encuentra vacía.
         </div>
+        <footer th:replace="plantillas/partes :: footer"></footer>
     </body>
 </html>
