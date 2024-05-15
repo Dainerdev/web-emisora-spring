@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Consorcios Principal - Dainer Florian</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>CONSORCIOS <a th:href="@{/}"><</a></h1>
+        <hr><br/>
+        <div>            
+            <a th:href="@{/consorcios/agregar}">AGREGAR CONSORCIO</a>            
+        </div>
+        <div>            
+            <a th:href="@{/consorcios/lista}">LISTA DE CONSORCIOS</a>            
+        </div>
+        <footer th:replace="plantillas/partes :: footer"></footer>
+    </body>
+</html>

@@ -22,6 +22,11 @@ public class IndexController {
         return "productora/productoras";
     }
     
+    @GetMapping("/consorcios")
+    public String consorcios() {
+        return "consorcio/consorcios";
+    }
+    
     @GetMapping("/programas")
     public String programas() {
         return "programa/programas";
