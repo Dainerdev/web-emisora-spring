@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Lista Programas - Dainer Florian</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>LISTA DE PROGRAMAS</h1>
+        <div>            
+            <a th:href="@{/programas}">REGRESAR</a>            
+        </div>
+        <hr><br/> 
+        <div th:if="${programa != null and !programa.empty}">
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>GÉNERO</th>
+                    <th>CONSORCIO</th>
+                    <th>ACCIÓN</th>
+                </tr>
+                <tr th:each="prog: ${programa}">
+                    <td th:text="${prog.id}"></td>
+                    <td th:text="${prog.nombre}"></td>
+                    <td th:text="${prog.genero}"></td>
+                    <td th:text="${prog.consorcio}"></td>
+                    <td><a th:href="@{/programas/editar/}+${prog.id}" th:text="EDITAR"></a></td>
+                    <td><a th:href="@{/programas/eliminar(id=${prog.id})}" th:text="ELIMINAR"></a></td>
+                </tr>
+            </table>
+        </div>        
+        <div th:if="${programa == null or programa.empty}">
+            La lista se encuentra vacía.
+        </div>
+        <footer th:replace="plantillas/partes :: footer"></footer>
+    </body>
+</html>

@@ -25,18 +25,18 @@ public class EmisoraController {
     public String emisorasListar(Model model) {
         List<Emisora> listaEmisoras = emisoraService.listarEmisoras();
         model.addAttribute("emisora", listaEmisoras);
-        return "listaEmisora";
+        return "emisora/listaEmisora";
     }
 
     @GetMapping("/emisoras/agregar")
     public String agregar(Emisora emi) {
-        return "modEmisoras";
+        return "emisora/modEmisoras";
     }
 
     @PostMapping("/emisoras/guardar")
     public String guardar(@ModelAttribute("emisora") @Valid Emisora emi, Errors errors) {
         if (errors.hasErrors()) {
-            return "modEmisoras";
+            return "emisora/modEmisoras";
         }
         emisoraService.guardar(emi);
         return "redirect:/emisoras/lista";
@@ -53,7 +53,7 @@ public class EmisoraController {
         } else {
             model.addAttribute("error", "Emisora no encontrada");
         }
-        return "modEmisoras";
+        return "emisora/modEmisoras";
     }
 
     @GetMapping("/emisoras/eliminar")

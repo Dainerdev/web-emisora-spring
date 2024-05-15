@@ -1,38 +1,17 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Programas Principal - Dainer Florian</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>LISTA DE PROGRAMAS <a th:href="@{/}"><</a></h1>
+        <h1>PROGRAMAS <a th:href="@{/}"><</a></h1>
+        <hr><br/>
         <div>            
-            <a th:href="@{/agregar}">AGREGAR PROGRAMA</a>            
+            <a th:href="@{/programas/agregar}">AGREGAR PROGRAMA</a>            
         </div>
-        <hr><br/> 
-        <div th:if="${programas != null and !programas.empty}">
-            <table border="1">
-                <tr>
-                    <th>ID</th>
-                    <th>NOMBRE</th>
-                    <th>FRECUENCIA</th>
-                    <th>TRANSMISIÓN</th>
-                    <th>ACCIÓN</th>
-                </tr>
-                <tr th:each="emi: ${programas}">
-                    <td th:text="${emi.id}"></td>
-                    <td th:text="${emi.nombre}"></td>
-                    <td th:text="${emi.frecuencia}"></td>
-                    <td th:text="${emi.transmision}"></td>
-                    <td><a th:href="@{/editar/}+${emi.id}" th:text="EDITAR"></a></td>
-                    <td><a th:href="@{/eliminar(id=${emi.id})}" th:text="ELIMINAR"></a></td>
-                </tr>
-            </table>
-        </div>        
-        <div th:if="${emisoras == null or emisoras.empty}">
-            La lista se encuentra vacía.
+        <div>            
+            <a th:href="@{/programas/lista}">LISTA DE PROGRAMA</a>            
         </div>
         <footer th:replace="plantillas/partes :: footer"></footer>
     </body>

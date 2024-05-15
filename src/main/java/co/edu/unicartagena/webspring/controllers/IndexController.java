@@ -14,6 +14,11 @@ public class IndexController {
     
     @GetMapping("/emisoras")
     public String emisoras() {
-        return "emisoras";
+        return "emisora/emisoras";
+    }
+    
+    @GetMapping("/programas")
+    public String programas() {
+        return "programa/programas";
     }
 }

@@ -20,6 +20,7 @@ public class ProgramaServiceImp implements IProgramaService{
         return (List<Programa>) crudPrograma.findAll();
     }
 
+    @Transactional
     @Override
     public void guardar(Programa prog) {
         crudPrograma.save(prog);
