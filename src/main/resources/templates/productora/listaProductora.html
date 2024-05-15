@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Lista Productoras - Dainer Florian</title>
+        <meta charset="UTF-8">        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>LISTA DE PRODUCTORAS</h1>
+        <div>            
+            <a th:href="@{/productoras}">REGRESAR</a>            
+        </div>
+        <hr><br/>        
+        <div th:if="${productora != null and !productora.empty}">
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>RFC</th>
+                    <th>TELÉFONO</th>
+                    <th>ACCIÓN</th>
+                </tr>
+                <tr th:each="prod: ${productora}">
+                    <td th:text="${prod.id}"></td>
+                    <td th:text="${prod.nombre}"></td>
+                    <td th:text="${prod.rfc}"></td>
+                    <td th:text="${prod.telefono}"></td>
+                    <td><a th:href="@{/productoras/editar/}+${prod.id}" th:text="EDITAR"></a></td>
+                    <td><a th:href="@{/productoras/eliminar(id=${prod.id})}" th:text="ELIMINAR"></a></td>
+                </tr>
+            </table>
+        </div>        
+        <div th:if="${productora == null or productora.empty}">
+            La lista se encuentra vacía.
+        </div>
+        <footer th:replace="plantillas/partes :: footer"></footer>
+    </body>
+</html>
