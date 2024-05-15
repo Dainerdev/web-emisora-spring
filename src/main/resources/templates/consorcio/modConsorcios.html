@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>MODIFICAR CONSORCIOS - Dainer Florian</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>DATOS DEL CONSORCIO</h1>
+        <a th:href="@{/consorcios}">REGRESAR</a>
+        <br/>
+        <form th:action="@{/consorcios/guardar}" method="POST" th:object="${consorcio}">
+            <br/>
+            
+            <label for="id">ID:</label>
+            <input type="text" name="id" th:field="*{id}" readonly />
+            <br/>            
+            
+            <span style="color: red">*</span> <label for="emisora">EMISORA:</label>
+            <input type="text" name="emisora" th:field="*{emisora}" required />
+            <span th:if="${#fields.hasErrors('emisora')}" th:errors='*{emisora}'>La emisora es requerida</span>
+            <br/>
+            
+            <span style="color: red">*</span> <label for="productora">PRODUCTORA:</label>
+            <input type="text" name="productora" th:field="*{productora}" required />
+            <span th:if="${#fields.hasErrors('productora')}" th:errors='*{productora}'>La productora es requerida</span>
+            <br/>
+            
+            <br/>
+            <input type="reset" value="Limpiar" /> &nbsp;&nbsp;&nbsp;
+            <input type="submit" name="guardar" value="Guardar" />
+            <br/>
+        </form>
+    </body>
+</html>
