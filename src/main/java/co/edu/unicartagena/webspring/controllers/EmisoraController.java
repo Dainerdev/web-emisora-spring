@@ -1,7 +1,7 @@
 package co.edu.unicartagena.webspring.controllers;
 
 import co.edu.unicartagena.webspring.models.Emisora;
-import co.edu.unicartagena.webspring.services.IEmisoraService;
+import co.edu.unicartagena.webspring.services.emisora.IEmisoraService;
 import java.util.List;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -16,35 +16,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @Slf4j
-public class ControladorInicio {
+public class EmisoraController {
 
     @Autowired
     IEmisoraService emisoraService;
 
-    @GetMapping("/")
-    public String inicio(Model model) {
+    @GetMapping("/emisoras/lista")
+    public String emisorasListar(Model model) {
         List<Emisora> listaEmisoras = emisoraService.listarEmisoras();
-        model.addAttribute("emisoras", listaEmisoras);
-
-        log.info("Ejecutando el controlador Inicio");
-        return "index";
+        model.addAttribute("emisora", listaEmisoras);
+        return "listaEmisora";
     }
 
-    @GetMapping("/agregar")
+    @GetMapping("/emisoras/agregar")
     public String agregar(Emisora emi) {
-        return "modify";
+        return "modEmisoras";
     }
 
-    @PostMapping("/guardar")
+    @PostMapping("/emisoras/guardar")
     public String guardar(@ModelAttribute("emisora") @Valid Emisora emi, Errors errors) {
         if (errors.hasErrors()) {
-            return "modify";
+            return "modEmisoras";
         }
         emisoraService.guardar(emi);
-        return "redirect:/";
+        return "redirect:/emisoras/lista";
     }
 
-    @GetMapping("/editar/{id}")
+    @GetMapping("/emisoras/editar/{id}")
     public String editar(@PathVariable("id") Integer id, Model model) {
         log.info("Invocando el metodo Editar");
         Emisora emi = new Emisora();
@@ -55,13 +53,13 @@ public class ControladorInicio {
         } else {
             model.addAttribute("error", "Emisora no encontrada");
         }
-        return "modify";
+        return "modEmisoras";
     }
 
-    @GetMapping("/eliminar")
+    @GetMapping("/emisoras/eliminar")
     public String eliminar(Emisora emi) {
         emisoraService.eliminiar(emi);
-        return "redirect:/";
+        return "redirect:/emisoras/lista";
     }
 
 }

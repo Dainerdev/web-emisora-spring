@@ -1,5 +1,5 @@
 
-package co.edu.unicartagena.webspring.services;
+package co.edu.unicartagena.webspring.services.emisora;
 
 import java.util.List;
 import co.edu.unicartagena.webspring.crud.IEmisoraCrud;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class EmisoraSereviceImp implements IEmisoraService{
+public class EmisoraServiceImp implements IEmisoraService{
     
     @Autowired
     IEmisoraCrud crudEmisora;

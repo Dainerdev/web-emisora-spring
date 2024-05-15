@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Emisoras Principal - Dainer Florian</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>EMISORAS <a th:href="@{/}"><</a></h1>
+        <hr><br/>
+        <div>            
+            <a th:href="@{/emisoras/agregar}">AGREGAR EMISORA</a>            
+        </div>
+        <div>            
+            <a th:href="@{/emisoras/lista}">LISTA DE EMISORAS</a>            
+        </div>
+        <footer th:replace="plantillas/partes :: footer"></footer>
+    </body>
+</html>

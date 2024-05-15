@@ -9,9 +9,9 @@ import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
 @Entity
-@Table(name = "emisora")
+@Table(name = "programa")
 @Data
-public class Emisora implements Serializable{
+public class Programa implements Serializable{
 
     private static final long serialVersionUID = 1L;
     
@@ -20,8 +20,8 @@ public class Emisora implements Serializable{
     @NotEmpty
     private String nombre;
     @NotEmpty
-    private String frecuencia;
+    private String genero;
     @NotEmpty
-    private String transmision;
+    private int consorcio;
     
 }

@@ -8,9 +8,9 @@
     </head>
     <body>
         <h1>DATOS DE LA EMISORA</h1>
-        <a th:href="@{/}">REGRESAR</a>
+        <a th:href="@{/emisoras}">REGRESAR</a>
         <br/>
-        <form th:action="@{/guardar}" method="POST" th:object="${emisora}">
+        <form th:action="@{/emisoras/guardar}" method="POST" th:object="${emisora}">
             <br/>
             
             <label for="id">ID:</label>

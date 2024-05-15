@@ -1,5 +1,5 @@
 
-package co.edu.unicartagena.webspring.services;
+package co.edu.unicartagena.webspring.services.emisora;
 
 import co.edu.unicartagena.webspring.models.Emisora;
 import java.util.List;

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Lista Emisoras - Dainer Florian</title>
+        <meta charset="UTF-8">        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>LISTA DE EMISORAS</h1>
+        <div>            
+            <a th:href="@{/emisoras}">REGRESAR</a>            
+        </div>
+        <hr><br/>        
+        <div th:if="${emisora != null and !emisora.empty}">
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>FRECUENCIA</th>
+                    <th>TRANSMISIÓN</th>
+                    <th>ACCIÓN</th>
+                </tr>
+                <tr th:each="emi: ${emisora}">
+                    <td th:text="${emi.id}"></td>
+                    <td th:text="${emi.nombre}"></td>
+                    <td th:text="${emi.frecuencia}"></td>
+                    <td th:text="${emi.transmision}"></td>
+                    <td><a th:href="@{/emisoras/editar/}+${emi.id}" th:text="EDITAR"></a></td>
+                    <td><a th:href="@{/emisoras/eliminar(id=${emi.id})}" th:text="ELIMINAR"></a></td>
+                </tr>
+            </table>
+        </div>        
+        <div th:if="${emisora == null or emisora.empty}">
+            La lista se encuentra vacía.
+        </div>
+        <footer th:replace="plantillas/partes :: footer"></footer>
+    </body>
+</html>

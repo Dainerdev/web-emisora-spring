@@ -5,33 +5,32 @@
         <meta charset="UTF-8">
     </head>
     <body>
-        <header th:replace="plantillas/partes :: header"></header>
-        <h2>PÁGINA DE INICIO</h2>
-        <a th:href="@{/agregar}">AGREGAR EMISORA</a>
-        <h4>LISTA DE EMISORAS</h4>
-        <hr><br/>
-        <div th:if="${emisoras != null and !emisoras.empty}">
-            <table border="1">
-                <tr>
-                    <th>ID</th>
-                    <th>NOMBRE</th>
-                    <th>FRECUENCIA</th>
-                    <th>TRANSMISIÓN</th>
-                    <th>ACCIÓN</th>
-                </tr>
-                <tr th:each="emi: ${emisoras}">
-                    <td th:text="${emi.id}"></td>
-                    <td th:text="${emi.nombre}"></td>
-                    <td th:text="${emi.frecuencia}"></td>
-                    <td th:text="${emi.transmision}"></td>
-                    <td><a th:href="@{/editar/}+${emi.id}" th:text="EDITAR"></a></td>
-                    <td><a th:href="@{/eliminar(id=${emi.id})}" th:text="ELIMINAR"></a></td>
-                </tr>
-            </table>
-        </div>
-        <div th:if="${emisoras == null or emisoras.empty}">
-            La lista se encuentra vacía.
-        </div>
-        <footer th:replace="plantillas/partes :: footer"></footer>
+        <center>
+            <h1>MENÚ PRINCIPAL</h1>
+            <hr><br/>
+            <div>
+                <ul>
+                    <li>
+                        <a th:href="@{/emisoras}">Ver Emisoras</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/}">Ver Productoras</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/}">Ver Consorcios</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/}">Ver Programas</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/}">Ver Programas Resumen</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/}">Ver Emisiones</a>
+                    </li>
+                </ul>
+            </div>
+            <footer th:replace="plantillas/partes :: footer"></footer>
+        </center>
     </body>
 </html>
