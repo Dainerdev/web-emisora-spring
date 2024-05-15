@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Lista Consorcios - Dainer Florian</title>
+        <meta charset="UTF-8">        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>LISTA DE CONSORCIOS</h1>
+        <div>            
+            <a th:href="@{/consorcios}">REGRESAR</a>            
+        </div>
+        <hr><br/>        
+        <div th:if="${consorcio != null and !consorcio.empty}">
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>EMISORA</th>
+                    <th>PRODUCTORA</th>
+                    <th>ACCIÓN</th>
+                </tr>
+                <tr th:each="cons: ${consorcio}">
+                    <td th:text="${cons.id}"></td>
+                    <td th:text="${cons.emisora}"></td>
+                    <td th:text="${cons.productora}"></td>
+                    <td><a th:href="@{/consorcios/editar/}+${cons.id}" th:text="EDITAR"></a></td>
+                    <td><a th:href="@{/consorcios/eliminar(id=${cons.id})}" th:text="ELIMINAR"></a></td>
+                </tr>
+            </table>
+        </div>        
+        <div th:if="${consorcio == null or consorcio.empty}">
+            La lista se encuentra vacía.
+        </div>
+        <footer th:replace="plantillas/partes :: footer"></footer>
+    </body>
+</html>
