@@ -17,6 +17,11 @@ public class IndexController {
         return "emisora/emisoras";
     }
     
+    @GetMapping("/productoras")
+    public String productoras() {
+        return "productora/productoras";
+    }
+    
     @GetMapping("/programas")
     public String programas() {
         return "programa/programas";
