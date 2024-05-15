@@ -31,4 +31,9 @@ public class IndexController {
     public String programas() {
         return "programa/programas";
     }
+    
+    @GetMapping("/progResumen")
+    public String progResumen() {
+        return "progResumen/progResumen";
+    }
 }
