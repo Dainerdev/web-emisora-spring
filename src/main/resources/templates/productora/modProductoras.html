@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>MODIFICAR PRODUCTORAS - Dainer Florian</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>DATOS DE LA PRODUCTORA</h1>
+        <a th:href="@{/productoras}">REGRESAR</a>
+        <br/>
+        <form th:action="@{/productoras/guardar}" method="POST" th:object="${productora}">
+            <br/>
+            
+            <label for="id">ID:</label>
+            <input type="text" name="id" th:field="*{id}" readonly />
+            <br/>            
+            
+            <span style="color: red">*</span> <label for="nombre">NOMBRE:</label>
+            <input type="text" name="nombre" th:field="*{nombre}" required />
+            <span th:if="${#fields.hasErrors('nombre')}" th:errors='*{nombre}'>El nombre es requerido</span>
+            <br/>
+            
+            <span style="color: red">*</span> <label for="rfc">RFC:</label>
+            <input type="text" name="rfc" th:field="*{rfc}" required />
+            <span th:if="${#fields.hasErrors('rfc')}" th:errors='*{rfc}'>El RFC es requerido</span>
+            <br/>
+            
+            <span style="color: red">*</span> <label for="telefono">TELÉFONO:</label>
+            <input type="text" name="telefono" th:field="*{telefono}" required />
+            <span th:if="${#fields.hasErrors('telefono')}" th:errors='*{telefono}'>El telefono es requerido</span>
+            <br/>
+            
+            <br/>
+            <input type="reset" value="Limpiar" /> &nbsp;&nbsp;&nbsp;
+            <input type="submit" name="guardar" value="Guardar" />
+            <br/>
+        </form>
+    </body>
+</html>
