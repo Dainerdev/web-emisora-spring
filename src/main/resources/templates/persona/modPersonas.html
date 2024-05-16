@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>MODIFICAR PERSONAS - Dainer Florian</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>DATOS DE LA PERSONAS</h1>
+        <a th:href="@{/personas}">REGRESAR</a>
+        <br/>
+        <form th:action="@{/personas/guardar}" method="POST" th:object="${persona}">
+            <br/>
+            
+            <label for="id">ID:</label>
+            <input type="text" name="id" th:field="*{id}" readonly />
+            <br/>            
+            
+            <span style="color: red">*</span> <label for="cedula">CEDULA:</label>
+            <input type="text" name="cedula" th:field="*{cedula}" required />
+            <span th:if="${#fields.hasErrors('cedula')}" th:errors='*{cedula}'>La cedula es requerida</span>
+            <br/>
+            
+            <span style="color: red">*</span> <label for="nombre">NOMBRE:</label>
+            <input type="text" name="nombre" th:field="*{nombre}" required />
+            <span th:if="${#fields.hasErrors('nombre')}" th:errors='*{nombre}'>El nombre es requerido</span>
+            <br/>
+            
+            <span style="color: red">*</span> <label for="produccion">PRODUCCIÓN:</label>
+            <input type="text" name="produccion" th:field="*{produccion}" required />
+            <span th:if="${#fields.hasErrors('produccion')}" th:errors='*{produccion}'>La produccion es requerida</span>
+            <br/>
+            
+            <span style="color: red">*</span> <label for="productora">PRODUCTORA:</label>
+            <input type="text" name="productora" th:field="*{productora}" required />
+            <span th:if="${#fields.hasErrors('productora')}" th:errors='*{productora}'>La productora es requerida</span>
+            <br/>
+            
+            <span style="color: red">*</span> <label for="programa">PROGRAMA:</label>
+            <input type="text" name="programa" th:field="*{programa}" required />
+            <span th:if="${#fields.hasErrors('programa')}" th:errors='*{programa}'>El programa es requerido</span>
+            <br/>
+            
+            <span style="color: red">*</span> <label for="progresumen">PROGRAMA RESUMEN:</label>
+            <input type="text" name="progresumen" th:field="*{progresumen}" required />
+            <span th:if="${#fields.hasErrors('progresumen')}" th:errors='*{progresumen}'>El programa resumen es requerido</span>
+            <br/>
+            
+            <span style="color: red">*</span> <label for="rol">ROL:</label>
+            <input type="text" name="rol" th:field="*{rol}" required />
+            <span th:if="${#fields.hasErrors('rol')}" th:errors='*{rol}'>El rol es requerido</span>
+            <br/>
+            
+            <br/>
+            <input type="reset" value="Limpiar" /> &nbsp;&nbsp;&nbsp;
+            <input type="submit" name="guardar" value="Guardar" />
+            <br/>
+        </form>
+    </body>
+</html>
