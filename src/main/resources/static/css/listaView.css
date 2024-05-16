@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #0d0c18;
+    background-color: #f6f6fb;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.back {
+    padding: 0 15px;
+    border-radius: 50px;
+    color: #0d0c18;
+    background-color: #9492dc;
+    text-decoration: none;
+}
+
+.back:hover {
+    transition: all 0.3s ease;
+    background-color: #6a67d6;
+}
+
+.line {
+    width: auto;
+    border-bottom: 2px solid #6a67d6;
+}
+
+.container {
+    padding: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid #9492dc;
+}
+
+th, td {    
+    padding: 15px;
+}
+
+th {
+    font-size: 20px;
+    border: 1px solid #6a67d6;
+    background-color: #9492dc;
+}
+
+tr:nth-child(odd) {
+    background-color:#e2e1ee;
+}
+
+.editar {
+    padding: 5px;
+    text-decoration: none;
+    color: #e2e1ee;    
+    transition: all 0.3s ease;
+    background-color: #5582e4;
+    border-radius: 5px;
+}
+
+.editar:hover {
+    transition: all 0.3s ease;
+    background-color: #0251fa;
+}
+
+.eliminar {
+    padding: 5px;
+    text-decoration: none;
+    color: #e2e1ee;    
+    transition: all 0.3s ease;
+    background-color: #e45555;
+    border-radius: 5px;
+}
+
+.eliminar:hover {
+    transition: all 0.3s ease;
+    background-color: #d42626;
+}
+
+.empty {
+    font-size: 24px;
+    padding: 20px;
+}

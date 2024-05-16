@@ -3,36 +3,38 @@
     <head>
         <title>Lista Emisoras - Dainer Florian</title>
         <meta charset="UTF-8">        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+        <link rel="stylesheet" th:href="@{/css/listaView.css}" />
+        <link rel="stylesheet" th:href="@{/css/footer.css}" />
     </head>
     <body>
-        <h1>LISTA DE EMISORAS</h1>
-        <div>            
-            <a th:href="@{/emisoras}">REGRESAR</a>            
-        </div>
-        <hr><br/>        
-        <div th:if="${emisora != null and !emisora.empty}">
-            <table border="1">
-                <tr>
-                    <th>ID</th>
-                    <th>NOMBRE</th>
-                    <th>FRECUENCIA</th>
-                    <th>TRANSMISIÓN</th>
-                    <th>ACCIÓN</th>
-                </tr>
-                <tr th:each="emi: ${emisora}">
-                    <td th:text="${emi.id}"></td>
-                    <td th:text="${emi.nombre}"></td>
-                    <td th:text="${emi.frecuencia}"></td>
-                    <td th:text="${emi.transmision}"></td>
-                    <td><a th:href="@{/emisoras/editar/}+${emi.id}" th:text="EDITAR"></a></td>
-                    <td><a th:href="@{/emisoras/eliminar(id=${emi.id})}" th:text="ELIMINAR"></a></td>
-                </tr>
-            </table>
-        </div>        
-        <div th:if="${emisora == null or emisora.empty}">
-            La lista se encuentra vacía.
-        </div>
-        <footer th:replace="plantillas/partes :: footer"></footer>
+        <center>
+            <h1>LISTA DE EMISORAS <a class="back" th:href="@{/emisoras}"> < </a></h1>
+            <div class="line"></div>
+            <br/>        
+            <div class="container" th:if="${emisora != null and !emisora.empty}">
+                <table border="1">  
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>FRECUENCIA</th>
+                        <th>TRANSMISIÓN</th>
+                        <th colspan="2">ACCIÓN</th>
+                    </tr>
+                    <tr th:each="emi: ${emisora}">
+                        <td th:text="${emi.id}"></td>
+                        <td th:text="${emi.nombre}"></td>
+                        <td th:text="${emi.frecuencia}"></td>
+                        <td th:text="${emi.transmision}"></td>
+                        <td><a class="editar" th:href="@{/emisoras/editar/}+${emi.id}" th:text="EDITAR"></a></td>
+                        <td><a class="eliminar" th:href="@{/emisoras/eliminar(id=${emi.id})}" th:text="ELIMINAR"></a></td>
+                    </tr>
+                </table>
+            </div>        
+            <div th:if="${emisora == null or emisora.empty}">
+                <span class="empty">La lista se encuentra vacía.</span>
+            </div>
+            <footer th:replace="plantillas/partes :: footer"></footer>
+        </center>
     </body>
 </html>

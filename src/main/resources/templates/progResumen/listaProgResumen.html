@@ -3,36 +3,38 @@
     <head>
         <title>Lista Programas Resumen - Dainer Florian</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">       
+        <link rel="stylesheet" th:href="@{/css/listaView.css}" />
+        <link rel="stylesheet" th:href="@{/css/footer.css}" />
     </head>
     <body>
-        <h1>LISTA DE PROGRAMAS RESUMEN</h1>
-        <div>            
-            <a th:href="@{/progResumen}">REGRESAR</a>            
-        </div>
-        <hr><br/> 
-        <div th:if="${progres != null and !progres.empty}">
-            <table border="1">
-                <tr>
-                    <th>ID</th>
-                    <th>NOMBRE</th>
-                    <th>PROGRAMA</th>
-                    <th>CONSORCIO</th>                    
-                    <th>ACCIÓN</th>
-                </tr>
-                <tr th:each="prog: ${progres}">
-                    <td th:text="${prog.id}"></td>
-                    <td th:text="${prog.nombre}"></td>
-                    <td th:text="${prog.programa}"></td>
-                    <td th:text="${prog.consorcio}"></td>
-                    <td><a th:href="@{/progResumen/editar/}+${prog.id}" th:text="EDITAR"></a></td>
-                    <td><a th:href="@{/progResumen/eliminar(id=${prog.id})}" th:text="ELIMINAR"></a></td>
-                </tr>
-            </table>
-        </div>        
-        <div th:if="${progres == null or progres.empty}">
-            La lista se encuentra vacía.
-        </div>
-        <footer th:replace="plantillas/partes :: footer"></footer>
+        <center>
+            <h1>LISTA DE PROGRAMAS RESUMEN <a class="back" th:href="@{/progResumen}"> < </a></h1>
+            <div class="line"></div>
+            <br/> 
+            <div class="container" th:if="${progres != null and !progres.empty}">
+                <table border="1">
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>PROGRAMA</th>
+                        <th>CONSORCIO</th>                    
+                        <th colspan="2">ACCIÓN</th>
+                    </tr>
+                    <tr th:each="prog: ${progres}">
+                        <td th:text="${prog.id}"></td>
+                        <td th:text="${prog.nombre}"></td>
+                        <td th:text="${prog.programa}"></td>
+                        <td th:text="${prog.consorcio}"></td>
+                        <td><a class="editar" th:href="@{/progResumen/editar/}+${prog.id}" th:text="EDITAR"></a></td>
+                        <td><a class="eliminar" th:href="@{/progResumen/eliminar(id=${prog.id})}" th:text="ELIMINAR"></a></td>
+                    </tr>
+                </table>
+            </div>        
+            <div th:if="${progres == null or progres.empty}">
+                <span class="empty">La lista se encuentra vacía.</span>
+            </div>
+            <footer th:replace="plantillas/partes :: footer"></footer>
+        </center>
     </body>
 </html>
