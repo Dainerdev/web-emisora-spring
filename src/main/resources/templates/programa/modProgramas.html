@@ -5,37 +5,50 @@
         <title>MODIFICAR PROGRAMAS - Dainer Florian</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/modView.css}" />
     </head>
     <body>
-        <h1>DATOS DEL PROGRAMA</h1>
-        <a th:href="@{/programas}">REGRESAR</a>
-        <br/>
-        <form th:action="@{/programas/guardar}" method="POST" th:object="${programa}">
+        <center>
+            <h1>DATOS DEL PROGRAMA <a class="back" th:href="@{/programas}"> < </a></h1>
+            <div class="line"></div>
             <br/>
-            
-            <label for="id">ID:</label>
-            <input type="text" name="id" th:field="*{id}" readonly />
-            <br/>            
-            
-            <span style="color: red">*</span> <label for="nombre">NOMBRE:</label>
-            <input type="text" name="nombre" th:field="*{nombre}" required />
-            <span th:if="${#fields.hasErrors('nombre')}" th:errors='*{nombre}'>El nombre es requerido</span>
-            <br/>
-            
-            <span style="color: red">*</span> <label for="genero">GÉNERO:</label>
-            <input type="text" name="genero" th:field="*{genero}" required />
-            <span th:if="${#fields.hasErrors('genero')}" th:errors='*{genero}'>El género es requerido</span>
-            <br/>
-            
-            <span style="color: red">*</span> <label for="consorcio">CONSORCIO:</label>
-            <input type="text" name="consorcio" th:field="*{consorcio}" required />
-            <span th:if="${#fields.hasErrors('consorcio')}" th:errors='*{consorcio}'>El consorcio es requerido</span>
-            <br/>
-            
-            <br/>
-            <input type="reset" value="Limpiar" /> &nbsp;&nbsp;&nbsp;
-            <input type="submit" name="guardar" value="Guardar" />
-            <br/>
-        </form>
+            <div class="container">
+                <form class="form" th:action="@{/programas/guardar}" method="POST" th:object="${programa}">
+                    <br/>
+
+                    <div class="form_group">
+                        <label class="tag" id="id" for="id">ID:</label>
+                        <input class="form_input" type="text" name="id" th:field="*{id}" readonly />
+                        <br/> 
+                    </div>
+
+                    <div class="form_group">
+                        <label class="tag" for="nombre"><span style="color: red">*</span> NOMBRE:</label>
+                        <input class="form_input" type="text" name="nombre" th:field="*{nombre}" required />
+                        <span th:if="${#fields.hasErrors('nombre')}" th:errors='*{nombre}'>El nombre es requerido</span>
+                        <br/>
+                    </div>
+
+                    <div class="form_group">
+                        <label class="tag" for="genero"><span style="color: red">*</span> GÉNERO:</label>
+                        <input class="form_input" type="text" name="genero" th:field="*{genero}" required />
+                        <span th:if="${#fields.hasErrors('genero')}" th:errors='*{genero}'>El género es requerido</span>
+                        <br/>
+                    </div>
+
+                    <div class="form_group">
+                        <label class="tag" for="consorcio"><span style="color: red">*</span> CONSORCIO:</label>
+                        <input class="form_input" type="text" name="consorcio" th:field="*{consorcio}" required />
+                        <span th:if="${#fields.hasErrors('consorcio')}" th:errors='*{consorcio}'>El consorcio es requerido</span>
+                        <br/>
+                    </div>
+
+                    <br/>
+                    <input class="btn" type="reset" value="Limpiar" /> &nbsp;&nbsp;&nbsp;
+                    <input class="btn" type="submit" name="guardar" value="Guardar" />
+                    <br/>
+                </form>
+            </div>            
+        </center>        
     </body>
 </html>

@@ -5,37 +5,51 @@
         <title>MODIFICAR EMISORAS - Dainer Florian</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/css/modView.css}" />
     </head>
     <body>
-        <h1>DATOS DE LA EMISORA</h1>
-        <a th:href="@{/emisoras}">REGRESAR</a>
-        <br/>
-        <form th:action="@{/emisoras/guardar}" method="POST" th:object="${emisora}">
+        <center>
+            <h1>DATOS DE LA EMISORA <a class="back" th:href="@{/emisoras}"> < </a></h1>
+            <div class="line"></div>
             <br/>
             
-            <label for="id">ID:</label>
-            <input type="text" name="id" th:field="*{id}" readonly />
-            <br/>            
-            
-            <span style="color: red">*</span> <label for="nombre">NOMBRE:</label>
-            <input type="text" name="nombre" th:field="*{nombre}" required />
-            <span th:if="${#fields.hasErrors('nombre')}" th:errors='*{nombre}'>El nombre es requerido</span>
-            <br/>
-            
-            <span style="color: red">*</span> <label for="frecuencia">FRECUENCIA:</label>
-            <input type="text" name="frecuencia" th:field="*{frecuencia}" required />
-            <span th:if="${#fields.hasErrors('frecuencia')}" th:errors='*{frecuencia}'>La frecuencia es requerida</span>
-            <br/>
-            
-            <span style="color: red">*</span> <label for="transmision">TRANSMISIÓN:</label>
-            <input type="text" name="transmision" th:field="*{transmision}" required />
-            <span th:if="${#fields.hasErrors('transmision')}" th:errors='*{transmision}'>La transmisión es requerida</span>
-            <br/>
-            
-            <br/>
-            <input type="reset" value="Limpiar" /> &nbsp;&nbsp;&nbsp;
-            <input type="submit" name="guardar" value="Guardar" />
-            <br/>
-        </form>
+            <div class="container">
+                <form class="form" th:action="@{/emisoras/guardar}" method="POST" th:object="${emisora}">
+                <br/>
+
+                <div class="form_group">
+                    <label class="tag" for="id">ID:</label>
+                    <input class="form_input"  id="id" type="text" name="id" th:field="*{id}" readonly />
+                    <br/> 
+                </div>
+                
+                <div class="form_group">
+                    <label class="tag" for="nombre"><span style="color: red">*</span> NOMBRE:</label>
+                    <input class="form_input" type="text" name="nombre" th:field="*{nombre}" required />
+                    <span th:if="${#fields.hasErrors('nombre')}" th:errors='*{nombre}'>El nombre es requerido</span>
+                    <br/>
+                </div>
+                
+                <div class="form_group">
+                    <label class="tag" for="frecuencia"><span style="color: red">*</span> FRECUENCIA:</label>
+                    <input class="form_input" type="text" name="frecuencia" th:field="*{frecuencia}" required />
+                    <span th:if="${#fields.hasErrors('frecuencia')}" th:errors='*{frecuencia}'>La frecuencia es requerida</span>
+                    <br/>
+                </div>
+                
+                <div class="form_group">
+                    <label class="tag" for="transmision"><span style="color: red">*</span> TRANSMISIÓN:</label>
+                    <input class="form_input" type="text" name="transmision" th:field="*{transmision}" required />
+                    <span th:if="${#fields.hasErrors('transmision')}" th:errors='*{transmision}'>La transmisión es requerida</span>
+                    <br/>
+                </div>
+                
+                <br/>
+                <input class="btn" type="reset" value="Limpiar" /> &nbsp;&nbsp;&nbsp;
+                <input class="btn" type="submit" name="guardar" value="Guardar" />
+                <br/>
+                </form>                
+            </div>
+        </center>
     </body>
 </html>
