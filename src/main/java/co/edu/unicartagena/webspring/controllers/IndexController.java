@@ -36,4 +36,9 @@ public class IndexController {
     public String progResumen() {
         return "progResumen/progResumen";
     }
+    
+    @GetMapping("/personas")
+    public String personas() {
+        return "persona/personas";
+    }
 }

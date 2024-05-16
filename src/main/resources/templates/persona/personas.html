@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Personas Principal - Dainer Florian</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>PERSONAS <a th:href="@{/}"><</a></h1>
+        <hr><br/>
+        <div>            
+            <a th:href="@{/personas/agregar}">AGREGAR PERSONA</a>            
+        </div>
+        <div>            
+            <a th:href="@{/personas/lista}">LISTA DE PERSONAS</a>            
+        </div>
+        <footer th:replace="plantillas/partes :: footer"></footer>
+    </body>
+</html>
