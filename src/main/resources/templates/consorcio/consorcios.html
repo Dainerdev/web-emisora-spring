@@ -3,16 +3,23 @@
     <head>
         <title>Consorcios Principal - Dainer Florian</title>
         <meta charset="UTF-8">
+        <link rel="stylesheet" th:href="@{/css/clasesMain.css}" />
+        <link rel="stylesheet" th:href="@{/css/footer.css}" />
     </head>
     <body>
-        <h1>CONSORCIOS <a th:href="@{/}"><</a></h1>
-        <hr><br/>
-        <div>            
-            <a th:href="@{/consorcios/agregar}">AGREGAR CONSORCIO</a>            
-        </div>
-        <div>            
-            <a th:href="@{/consorcios/lista}">LISTA DE CONSORCIOS</a>            
-        </div>
-        <footer th:replace="plantillas/partes :: footer"></footer>
+        <center>
+            <h1>CONSORCIOS <a class="back" th:href="@{/}"> < </a></h1>
+            <div class="line"></div>
+            <br/>
+            <ul>
+                <li>            
+                    <a class="menu" th:href="@{/consorcios/agregar}">AGREGAR CONSORCIO</a>            
+                </li>
+                <li>            
+                    <a class="menu" th:href="@{/consorcios/lista}">LISTA DE CONSORCIOS</a>            
+                </li>
+            </ul>        
+            <footer th:replace="plantillas/partes :: footer"></footer>
+        </center>
     </body>
 </html>

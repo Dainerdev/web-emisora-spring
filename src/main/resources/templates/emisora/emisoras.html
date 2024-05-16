@@ -3,16 +3,23 @@
     <head>
         <title>Emisoras Principal - Dainer Florian</title>
         <meta charset="UTF-8">
+        <link rel="stylesheet" th:href="@{/css/clasesMain.css}" />
+        <link rel="stylesheet" th:href="@{/css/footer.css}" />
     </head>
     <body>
-        <h1>EMISORAS <a th:href="@{/}"><</a></h1>
-        <hr><br/>
-        <div>            
-            <a th:href="@{/emisoras/agregar}">AGREGAR EMISORA</a>            
-        </div>
-        <div>            
-            <a th:href="@{/emisoras/lista}">LISTA DE EMISORAS</a>            
-        </div>
-        <footer th:replace="plantillas/partes :: footer"></footer>
+        <center>
+            <h1>EMISORAS <a class="back" th:href="@{/}"> < </a></h1>
+            <div class="line"></div>
+            <br/>
+            <ul>
+                <li>            
+                    <a class="menu" th:href="@{/emisoras/agregar}">AGREGAR EMISORA</a>            
+                </li>
+                <li>            
+                    <a class="menu" th:href="@{/emisoras/lista}">LISTA DE EMISORAS</a>            
+                </li>
+            </ul>    
+            <footer th:replace="plantillas/partes :: footer"></footer>
+        </center>
     </body>
 </html>

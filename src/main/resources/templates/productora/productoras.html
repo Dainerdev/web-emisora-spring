@@ -3,16 +3,23 @@
     <head>
         <title>Productoras Principal - Dainer Florian</title>
         <meta charset="UTF-8">
+        <link rel="stylesheet" th:href="@{/css/clasesMain.css}" />
+        <link rel="stylesheet" th:href="@{/css/footer.css}" />
     </head>
     <body>
-        <h1>PRODUCTORAS <a th:href="@{/}"><</a></h1>
-        <hr><br/>
-        <div>            
-            <a th:href="@{/productoras/agregar}">AGREGAR PRODUCTORA</a>            
-        </div>
-        <div>            
-            <a th:href="@{/productoras/lista}">LISTA DE PRODUCTORAS</a>            
-        </div>
-        <footer th:replace="plantillas/partes :: footer"></footer>
+        <center>
+            <h1>PRODUCTORAS <a class="back" th:href="@{/}"> < </a></h1>
+            <div class="line"></div>
+            <br/>
+            <ul>
+                <li>            
+                    <a class="menu" th:href="@{/productoras/agregar}">AGREGAR PRODUCTORA</a>            
+                </li>
+                <li>            
+                    <a class="menu" th:href="@{/productoras/lista}">LISTA DE PRODUCTORAS</a>            
+                </li>
+            </ul>
+            <footer th:replace="plantillas/partes :: footer"></footer>
+        </center>
     </body>
 </html>

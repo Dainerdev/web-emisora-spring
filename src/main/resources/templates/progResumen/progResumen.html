@@ -3,16 +3,23 @@
     <head>
         <title>Programas Resumen Principal - Dainer Florian</title>
         <meta charset="UTF-8">
+        <link rel="stylesheet" th:href="@{/css/clasesMain.css}" />
+        <link rel="stylesheet" th:href="@{/css/footer.css}" />
     </head>
     <body>
-        <h1>PROGRAMAS RESUMEN <a th:href="@{/}"><</a></h1>
-        <hr><br/>
-        <div>            
-            <a th:href="@{/progResumen/agregar}">AGREGAR PROGRAMA RESUMEN</a>            
-        </div>
-        <div>            
-            <a th:href="@{/progResumen/lista}">LISTA DE PROGRAMAS RESUMEN</a>            
-        </div>
-        <footer th:replace="plantillas/partes :: footer"></footer>
+        <center>
+            <h1>PROGRAMAS RESUMEN <a class="back" th:href="@{/}"> < </a></h1>
+            <div class="line"></div>
+            <br/>
+            <ul>
+                <li>            
+                    <a class="menu" th:href="@{/progResumen/agregar}">AGREGAR PROGRAMA RESUMEN</a>            
+                </li>
+                <li>            
+                    <a class="menu" th:href="@{/progResumen/lista}">LISTA DE PROGRAMAS RESUMEN</a>            
+                </li>   
+            </ul>            
+            <footer th:replace="plantillas/partes :: footer"></footer>
+        </center>
     </body>
 </html>
