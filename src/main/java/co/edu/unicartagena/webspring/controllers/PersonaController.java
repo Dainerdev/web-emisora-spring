@@ -28,7 +28,7 @@ public class PersonaController {
         return "persona/listaPersona";
     }
     
-    @GetMapping("/prsonas/agregar")
+    @GetMapping("/personas/agregar")
     public String agregar(Persona per) {
         return "persona/modPersonas";
     }
