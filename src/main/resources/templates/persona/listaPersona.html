@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Lista Personas - Dainer Florian</title>
+        <meta charset="UTF-8">        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>LISTA DE PERSONAS</h1>
+        <div>            
+            <a th:href="@{/personas}">REGRESAR</a>            
+        </div>
+        <hr><br/>        
+        <div th:if="${persona != null and !persona.empty}">
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>CEDULA</th>
+                    <th>NOMBRE</th>
+                    <th>PRODUCCIÓN</th>
+                    <th>PRODUCTORA</th>
+                    <th>PROGRAMA</th>
+                    <th>PROGRAMA RESUMEN</th>
+                    <th>ROL</th>
+                    <th>ACCIÓN</th>
+                </tr>
+                <tr th:each="per: ${persona}">
+                    <td th:text="${per.id}"></td>
+                    <td th:text="${per.cedula}"></td>
+                    <td th:text="${per.nombre}"></td>
+                    <td th:text="${per.produccion}"></td>
+                    <td th:text="${per.productora}"></td>
+                    <td th:text="${per.programa}"></td>
+                    <td th:text="${per.progresumen}"></td>
+                    <td th:text="${per.rol}"></td>
+                    <td><a th:href="@{/personas/editar/}+${per.id}" th:text="EDITAR"></a></td>
+                    <td><a th:href="@{/personas/eliminar(id=${per.id})}" th:text="ELIMINAR"></a></td>
+                </tr>
+            </table>
+        </div>        
+        <div th:if="${persona == null or persona.empty}">
+            La lista se encuentra vacía.
+        </div>
+        <footer th:replace="plantillas/partes :: footer"></footer>
+    </body>
+</html>

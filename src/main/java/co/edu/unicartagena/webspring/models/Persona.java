@@ -28,7 +28,7 @@ public class Persona implements Serializable{
     @NotEmpty
     private int programa;
     @NotEmpty
-    private int progResumen;
+    private int progresumen;
     @NotEmpty
     private String rol;
     
