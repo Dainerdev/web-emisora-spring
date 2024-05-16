@@ -3,30 +3,32 @@
     <head>
         <title>Principal - Dainer Florian</title>
         <meta charset="UTF-8">
+        <link rel="stylesheet" th:href="@{/css/style.css}" />
     </head>
     <body>
         <center>
             <h1>MENÚ PRINCIPAL</h1>
-            <hr><br/>
+            <div class="line"></div>
+            <br/>
             <div>
                 <ul>
                     <li>
-                        <a th:href="@{/emisoras}">Ver Emisoras</a>
+                        <a id="opt" th:href="@{/emisoras}">Ver Emisoras</a>
                     </li>
                     <li>
-                        <a th:href="@{/productoras}">Ver Productoras</a>
+                        <a id="opt" th:href="@{/productoras}">Ver Productoras</a>
                     </li>
                     <li>
-                        <a th:href="@{/consorcios}">Ver Consorcios</a>
+                        <a id="opt" th:href="@{/consorcios}">Ver Consorcios</a>
                     </li>
                     <li>
-                        <a th:href="@{/programas}">Ver Programas</a>
+                        <a id="opt" th:href="@{/programas}">Ver Programas</a>
                     </li>
                     <li>
-                        <a th:href="@{/progResumen}">Ver Programas Resumen</a>
+                        <a id="opt" th:href="@{/progResumen}">Ver Programas Resumen</a>
                     </li>
                     <li>
-                        <a th:href="@{/personas}">Ver Personas</a>
+                        <a id="opt" th:href="@{/personas}">Ver Personas</a>
                     </li>
                 </ul>
             </div>
