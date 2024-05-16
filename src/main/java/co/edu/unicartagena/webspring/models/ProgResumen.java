@@ -20,7 +20,7 @@ public class ProgResumen implements Serializable{
     @NotEmpty
     private String nombre;
     @NotEmpty
-    private String programa;
+    private int programa;
     @NotEmpty
     private int consorcio;
 }

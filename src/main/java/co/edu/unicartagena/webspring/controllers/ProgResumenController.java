@@ -29,7 +29,8 @@ public class ProgResumenController {
     }
     
     @GetMapping("/progResumen/agregar")
-    public String agregar(ProgResumen progres) {
+    public String agregar(Model model) {
+        model.addAttribute("progres", new ProgResumen());
         return "progResumen/modProgResumen";
     }
     

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>MODIFICAR PROGRAMAS RESUMEN - Dainer Florian</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>DATOS DEL PROGRAMA RESUMEN</h1>
+        <a th:href="@{/progResumen}">REGRESAR</a>
+        <br/>
+        <form th:action="@{/progResumen/guardar}" method="POST" th:object="${progres}">
+            <br/>
+            
+            <label for="id">ID:</label>
+            <input type="number" name="id" th:field="*{id}" readonly />
+            <br/>            
+            
+            <span style="color: red">*</span> <label for="nombre">NOMBRE:</label>
+            <input type="text" name="nombre" th:field="*{nombre}" required />
+            <span th:if="${#fields.hasErrors('nombre')}" th:errors='*{nombre}'>El nombre es requerido</span>
+            <br/>
+            
+            <span style="color: red">*</span> <label for="programa">PROGRAMA:</label>
+            <input type="number" name="programa" th:field="*{programa}" required />
+            <span th:if="${#fields.hasErrors('programa')}" th:errors='*{programa}'>El programa es requerido</span>
+            <br/>
+            
+            <span style="color: red">*</span> <label for="consorcio">CONSORCIO:</label>
+            <input type="number" name="consorcio" th:field="*{consorcio}" required />
+            <span th:if="${#fields.hasErrors('consorcio')}" th:errors='*{consorcio}'>El consorcio es requerido</span>
+            <br/>
+            
+            <br/>
+            <input type="reset" value="Limpiar" /> &nbsp;&nbsp;&nbsp;
+            <input type="submit" name="guardar" value="Guardar" />
+            <br/>
+        </form>
+    </body>
+</html>
